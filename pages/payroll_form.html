@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="C:\Users\Jones\Desktop\Employee_Payroll App\Payroll_form.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <title>Employee Payroll Form</title>
+    <script defer src="C:\Users\Jones\Desktop\Employee_Payroll App\payroll_form.js"></script>
+    <script defer src="C:\Users\Jones\Desktop\Employee_Payroll App\EmployeePayrollData.js"></script>
 </head>
 
 <body>
@@ -23,12 +25,15 @@
     </header>
     <!-- UC 2 -->
     <div class="form-content">
-        <form class="form" action="#" onsubmit="save(event);return false">
+        <form class="form" action="#" onreset="resetForm()" onsubmit="save(event)">
+
             <div class="form-head">Employee Payroll Form</div>
             <div class="row-content">
                 <label for="name" class="label text">Name</label>
-                <input type="text" name="name" id="name" class="input" placeholder="Your Name ..." required>
+                <input type="text" name="name" id="name" class="input" placeholder="Your Name ..." autocomplete="off" required>
+                <error-output class="text-error" for="text"></error-output>
             </div>
+
             <!-- UC 3 -->
             <div class="row-content">
                 <label class="label text" for="profile">Profile image</label>
@@ -48,31 +53,32 @@
                     <label>
             <input type="radio" id="profile4" name="profile" value="C:\Users\Jones\Desktop\Employee_Payroll App\assets\profile_pic\Ellipse -7.png" required>
             <img class="profile" id="image4" src="C:\Users\Jones\Desktop\Employee_Payroll App\assets\profile_pic\Ellipse -7.png">
-          </label>
+                    </label>
                 </div>
             </div>
- <div class="row-content">
+
+            <div class="row-content">
                 <label class="label text" for="gender">Gender</label>
                 <div>
                     <input type="radio" id="male" name="gender" value="male">
                     <label class="text" for="male">Male</label>
                     <input type="radio" id="female" name="gender" value="female">
                     <label class="text" for="female">Female</label>
+                </div>
             </div>
-         </div>
 
             <div class="row-content">
                 <label class="label text" for="department">Department</label>
                 <div>
-                    <input class="checkbox" type="checkbox" id="hr" name="hr" value="HR">
+                    <input class="checkbox" type="checkbox" id="hr" name="department" value="HR">
                     <label class="text" for="hr">HR</label>
-                    <input class="checkbox" type="checkbox" id="sales" name="sales" value="Sales">
+                    <input class="checkbox" type="checkbox" id="sales" name="department" value="Sales">
                     <label class="text" for="sales">Sales</label>
-                    <input class="checkbox" type="checkbox" id="finance" name="finance" value="Finance">
+                    <input class="checkbox" type="checkbox" id="finance" name="department" value="Finance">
                     <label class="text" for="finance">Finance</label>
-                    <input class="checkbox" type="checkbox" id="engineer" name="engineer" value="Engineer">
+                    <input class="checkbox" type="checkbox" id="engineer" name="department" value="Engineer">
                     <label class="text" for="engineer">Engineer</label>
-                    <input class="checkbox" type="checkbox" id="others" name="others" value="Others">
+                    <input class="checkbox" type="checkbox" id="others" name="department" value="Others">
                     <label class="text" for="others">Others</label>
                 </div>
             </div>
@@ -80,10 +86,11 @@
             <div class="row-content">
                 <label class="label text" for="salary">Choose Your Salary: </label>
                 <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100"
-                    value="400000">
+                       value="400000">
                 <output class="salary-output text" for="salary">400000</output>
             </div>
 
+            <!-- UC 5 -->
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
                 <div>
@@ -121,28 +128,31 @@
                         <option value="31">31</option>
                     </select>
                     <select id="month" name="Month">
-                        <option value="Jan">January</option>
-                        <option value="Feb">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="Aug">August</option>
-                        <option value="Sept">September</option>
-                        <option value="Oct">October</option>
-                        <option value="Nov">November</option>
-                        <option value="Dec">December</option>
+                        <option value="0">January</option>
+                        <option value="1">February</option>
+                        <option value="2">March</option>
+                        <option value="3">April</option>
+                        <option value="4">May</option>
+                        <option value="5">June</option>
+                        <option value="6">July</option>
+                        <option value="7">August</option>
+                        <option value="8">September</option>
+                        <option value="9">October</option>
+                        <option value="10">November</option>
+                        <option value="11">December</option>
                     </select>
                     <select id="year" name="Year">
-                        <option value="2022">2022</option>
                         <option value="2021">2021</option>
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
                     </select>
+
                 </div>
+                <error-output class="date-error" for="text"></error-output>
             </div>
+
+            <!-- UC 6 -->
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>
                 <textarea id="notes" class="input" name="Notes" placeholder="" style="height:100px"></textarea>
@@ -155,6 +165,7 @@
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>
+
         </form>
     </div>
 </body>
